@@ -6,6 +6,7 @@ branches:
     - master
 
 image:
+  - macos-mojave
   - Ubuntu1804
 
 # scripts that are called at very beginning, before repo cloning
@@ -20,13 +21,20 @@ for:
         - image: Ubuntu1804
 
     before_build:
-      - echo "Starting stuff."
+      # Following alternate install steps for linuxbrew from here: https://docs.brew.sh/Homebrew-on-Linux#alternative-installation
       - docker --version
-      - docker container ls
+  -
+    matrix:
+      only:
+        - image: macos-mojave
+
+    before_build:
+      - echo "Mac don't need any before_build steps."
 
 # Building bottles shell script.
 build_script:
-    - ./build-bottles.sh
+  - ./build-bottles.sh
 
 artifacts:
   - path: "*.bottle.tar.gz"
+
