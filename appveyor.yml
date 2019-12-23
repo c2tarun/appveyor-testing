@@ -1,0 +1,32 @@
+version: 1.0.{build}
+
+branches:
+  # whitelist
+  only:
+    - master
+
+image:
+  - Ubuntu1804
+
+# scripts that are called at very beginning, before repo cloning
+init:
+  - git config --global core.autocrlf input
+
+# scripts that run after cloning repository
+for:
+  -
+    matrix:
+      only:
+        - image: Ubuntu1804
+
+    before_build:
+      # Following alternate install steps for linuxbrew from here: https://docs.brew.sh/Homebrew-on-Linux#alternative-installation
+      - docker --version
+      - docker container ls
+
+# Building bottles shell script.
+build_script:
+    - ./build-bottles.sh
+
+artifacts:
+  - path: "*.bottle.tar.gz"
