@@ -25,7 +25,8 @@ for:
       - sudo apt-get install tree
       - sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
       - tree .
-      - /home/linuxbrew/.linuxbrew/bin/brew install hello
+      - export PATH='/home/linuxbrew/.linuxbrew/bin:$PATH'
+      - brew install hello
   -
     matrix:
       only:
