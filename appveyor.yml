@@ -22,7 +22,7 @@ for:
 
     before_build:
       # Following alternate install steps for linuxbrew from here: https://docs.brew.sh/Homebrew-on-Linux#alternative-installation
-      - apt-get install tree
+      - sudo apt-get install tree
       - sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
       - tree .
       - /home/linuxbrew/.linuxbrew/bin/brew install hello
