@@ -20,7 +20,7 @@ for:
         - image: Ubuntu1804
 
     before_build:
-      # Following alternate install steps for linuxbrew from here: https://docs.brew.sh/Homebrew-on-Linux#alternative-installation
+      - echo "Starting stuff."
       - docker --version
       - docker container ls
 
