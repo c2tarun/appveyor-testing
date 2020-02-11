@@ -22,11 +22,7 @@ for:
 
     before_build:
       # Following alternate install steps for linuxbrew from here: https://docs.brew.sh/Homebrew-on-Linux#alternative-installation
-      - export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
       - echo $PATH
-      - sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-      - echo $PATH
-      - brew install hello
   -
     matrix:
       only:
